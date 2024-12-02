@@ -50,7 +50,8 @@ export default function Search() {
         {data.length > 0 ? (
           data.map((post, index) => (
             <h1 key={index}>
-              {post.name.english}{" "}
+              {post.name.english}
+              <img src={`http://localhost:8000/images/${post.id}`} height="200px" width="200px"></img>
               <input
                 type="button"
                 onClick={() => pokemonPicked(post.id)}
