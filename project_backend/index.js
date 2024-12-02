@@ -8,20 +8,24 @@ const types = require("./types.json");
 
 application.get("/search", (request, response) => {
   const val = request.query.val;
-  if (val) {
-    const filtered = pokemon.filter((pokem) =>
-        pokem.name.english.toLowerCase().includes(val.toLowerCase())
-      );
-      
-    response.send(filtered)
-  } else {
-      response.status(400).json({ error: "Query parameter 'val' is required" });
+  const types = request.query.type;
+  let filtered = pokemon.filter((pokem) =>
+    pokem.name.english.toLowerCase().includes(val.toLowerCase())
+  );
+
+  if (types) {
+    const selectedTypes = types.split(",").map((type) => type.trim());
+    filtered = filtered.filter((pokem) =>
+      pokem.type.some((type) => selectedTypes.includes(type))
+    );
   }
+
+  response.send(filtered);
 });
 
+
+
 application.get("/types", (request, response) => {
-   const type = types.filter((type) => type.english);
-   console.log(type)
-   response.send(type)
+   response.send(types)
 });
 application.listen(8000, () => console.log("servere started"));
