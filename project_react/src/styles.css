@@ -1,0 +1,76 @@
+.whole_side{
+    display: flex;
+}
+.left_side{
+width: 70%;
+height: 100vh;
+}
+.right_side{
+width: 30%;
+height: 100vh;
+background-image: url('./../src/assets/pokemon_card_template.png');
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
+}
+.search_class{
+margin-top: 0.5%;
+width: 40%;
+}
+.types_class{
+width: 60%;
+display: inline;
+}
+.types_inside_class{
+display: flex;
+flex-wrap: wrap;
+}
+.one_checkbox_class{
+width: auto;
+display: inline;
+margin: 0.2rem;
+}
+.search_with_type{
+    display: flex;
+    height: 10%;
+}
+.results_class{
+overflow-y: auto;
+display: flex;
+height: 90%;
+width: 100%;
+flex-wrap: wrap;
+}
+.one_result_class{
+    padding: 2%;
+    border: 3px solid rgb(13, 202, 240);
+    text-align: center;
+    margin: 2%;
+    border-radius: 15%;
+}
+.picked_class{
+    color: gray;
+}
+.picked_image{
+    height: 30vh;
+    width: 60%;
+    margin-top: 8%;
+    margin-left: 20%;
+}
+.picked_title{
+    text-align: center;
+    margin-top: 11%;
+}
+.picked_types{
+    text-align: center;
+    margin-top: 6%;
+}
+.picked_infos{
+    margin-left: 20%;
+    font-size:1pc;
+    display: flex;
+    font-weight: bold;
+}
+.info_picked_right_side{
+    margin-left: 20%;
+}

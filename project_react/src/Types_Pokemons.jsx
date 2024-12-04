@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import './styles.css';
 export default function Types_Pokemons({ onTypesChange }) {
   const [types, setTypes] = useState([]);
   const [typesState, setTypesState] = useState([]);
@@ -37,9 +37,9 @@ export default function Types_Pokemons({ onTypesChange }) {
   }, []);
 
   return (
-    <div>
+    <div className="types_inside_class">
       {types.map((type, index) => (
-        <div key={index}>
+        <div key={index} className="one_checkbox_class">
           <input
             type="checkbox"
             className="form-check-input"

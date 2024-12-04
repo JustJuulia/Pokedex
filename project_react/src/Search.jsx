@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Picked_Card from "./Picked_Card";
+import './styles.css';
 
 export default function Search() {
   const [search, setSearch] = useState("");
@@ -34,6 +35,10 @@ export default function Search() {
 
   return (
     <>
+    <div className="whole_side">
+    <div className="left_side">
+      <div className="search_with_type">
+      <div className="search_class">
       <div className="input-group">
         <input
           type="search"
@@ -46,30 +51,41 @@ export default function Search() {
           }}
         ></input>
       </div>
-      <div>
-        {data.length > 0 ? (
-          data.map((post, index) => (
-            <h1 key={index}>
-              {post.name.english}
-              <img src={`http://localhost:8000/images/${post.id}`} height="200px" width="200px"></img>
-              <input
-                type="button"
-                onClick={() => pokemonPicked(post.id)}
-                value={post.name.english}
-              ></input>
-            </h1>
-          ))
-        ) : (
-          <p></p>
-        )}
       </div>
+      <div className="types_class">
       <Types_Pokemons
         onTypesChange={(types) => {
           setSelectedTypes(types);
           searchdata(search, types.join(","));
         }}
       />
+      </div>
+      </div>
+      <div className="results_class">
+        {data.length > 0 ? (
+          data.map((post, index) => (
+            <div key={index} className="one_result_class">
+              <img src={`http://localhost:8000/images/${post.id}`} height="200px" width="200px"></img>
+              <br></br>
+              <br></br>
+              <input
+                className="btn btn-outline-info"
+                type="button"
+                onClick={() => pokemonPicked(post.id)}
+                value={post.name.english}
+                
+              ></input>
+            </div>
+          ))
+        ) : (
+          <p></p>
+        )}
+        </div>
+      </div>
+      <div className="right_side">
       {pickedPokemon && <Picked_Card id={pickedPokemon} />}
+      </div>
+      </div>
     </>
   );
 }
