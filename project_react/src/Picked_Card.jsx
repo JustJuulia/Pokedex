@@ -28,7 +28,7 @@ export default function Picked_Card(props) {
         <h2>{info.name.english}</h2>
       </div>
       <img
-        src={`http://localhost:8000/images/${props.id}`}
+         src={`http://localhost:8000/images/${props.id}`}
         className="picked_image"
       ></img>
       <div className="picked_types">
